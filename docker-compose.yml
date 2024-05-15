@@ -1,0 +1,6 @@
+﻿services:
+  honeypotcrms4:
+    image: honeypotcrms4
+    build:
+      context: .
+      dockerfile: HoneypotCRMS4/Dockerfile
