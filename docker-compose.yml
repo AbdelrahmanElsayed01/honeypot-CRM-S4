@@ -1,4 +1,6 @@
-﻿services:
+﻿name: honeypotcrms4
+
+services:
   honeypotcrms4:
     image: honeypotcrms4
     ports:
