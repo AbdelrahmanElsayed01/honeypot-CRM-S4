@@ -1,6 +1,8 @@
 ﻿services:
   honeypotcrms4:
     image: honeypotcrms4
+    ports:
+      - 80
     build:
       context: .
       dockerfile: HoneypotCRMS4/Dockerfile
