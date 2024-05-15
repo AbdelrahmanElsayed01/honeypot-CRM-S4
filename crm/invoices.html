@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Portal</title>
+  <link rel="stylesheet" href="css/all.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/companies.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="carrotsuite-nav">
+        <div class="logo">
+          <a href="index.html" class="active nav-item">
+            <img src="images/crmLogo.png" />
+          </a>
+        </div>
+        <div class="icons left">
+        </div>
+        <div class="icons right">
+          <a href="#" class="nav-item">
+            <div class="badge"><span>5</span></div>
+            <i class="far fa-bell"></i>
+          </a>
+          <a href="#" class="nav-item"><i class="far fa-envelope"></i></a>
+          <a href="#" class="nav-item"><i class="fas fa-search"></i></a>
+        </div>
+        <div class="user" id="user">
+          <a href="#" class="user-link">Kristians</a>
+          <div class="user-img-wrapper">
+            <img src="images/User Basic Straight Lineal.png" alt="User 1" />
+          </div>
+        </div>
+      </nav>
+      <!-- end of feeds navigation -->
+    </header>
+    <main class="main">
+      <section class="sidebar">
+        <h3>Customer Portal</h3>
+        <img src="images/logo.png" alt="Carrotsuite" id="logoSidebar" />
+        <ul class="menu">
+          <li>
+            <a href="index.html" title="Home">
+              <img src="images/home.png" alt="" id="quotesLogo">
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Users">
+              <img src="images/users.png" alt="" id="quotesLogo">
+              <span>Users</span>
+            </a>
+          </li>
+          <li>
+            <a href="companies.html" title="Companies">
+              <img src="images/companies.png" alt="" id="quotesLogo">
+              <span>Companies</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Orders">
+              <img src="images/orders.png" alt="" id="quotesLogo">
+              <span>Orders</span>
+            </a>
+          </li>
+          <li>
+            <a href="invoices.html" class="active" title="Invoices">
+              <img src="images/invoices.png" alt="" id="quotesLogo">
+              <span>Invoices</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="Quotes">
+              <img src="images/quotes.png" alt="" id="quotesLogo">
+              <span>Quotes</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="page-content">
+        <article class="header">
+          <div class="info"></div>
+          <div class="dropdown">
+            <button class="dropbtn">
+              Actions <i class="fas fa-caret-up"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/>
+                </svg>
+                Send SMS
+              </a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <rect x="3" y="5" width="18" height="14" rx="2"/>
+                  <polyline points="3 7 12 13 21 7"/>
+                </svg>
+                Send Email
+              </a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"/>
+                  <polyline points="9 15 12 12 15 15"/>
+                  <line x1="12" y1="12" x2="12" y2="21"/>
+                </svg>
+                Export
+              </a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4"/>
+                  <line x1="12" y1="13" x2="12" y2="22"/>
+                  <polyline points="9 19 12 22 15 19"/>
+                </svg>
+                Import
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="board">
+          <div class="invoiceContainer">
+            <h2>INVOICES</h2>
+            <ul class="responsive-table">
+              <li class="table-header">
+                <div class="col col-1">Job Id</div>
+                <div class="col col-2">Customer Name</div>
+                <div class="col col-3">Amount Due</div>
+                <div class="col col-4">Payment Status</div>
+                <div class="col col-5">Invoice</div>
+              </li>
+              <li class="table-row">
+                <div class="col col-1" data-label="Job Id">42235</div>
+                <div class="col col-2" data-label="Customer Name">John Doe</div>
+                <div class="col col-3" data-label="Amount">$350</div>
+                <div class="col col-4" data-label="Payment Status">Pending</div>
+                <div class="col col-5" data-label="Invoice PDF"><a href="images/invoice.png" download><img src="images/pdfDownloadButton.png" alt="" class="pdfButton"></a></div>
+              </li>
+              <li class="table-row">
+                <div class="col col-1" data-label="Job Id">42442</div>
+                <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
+                <div class="col col-3" data-label="Amount">$220</div>
+                <div class="col col-4" data-label="Payment Status">Succeeded</div>
+                <div class="col col-5" data-label="Invoice PDF"><a href="images/invoice.png" download=""><img src="images/pdfDownloadButton.png" alt="" class="pdfButton"></a></div>
+              </li>
+              <li class="table-row">
+                <div class="col col-1" data-label="Job Id">42257</div>
+                <div class="col col-2" data-label="Customer Name">John Smith</div>
+                <div class="col col-3" data-label="Amount">$341</div>
+                <div class="col col-4" data-label="Payment Status">Pending</div>
+                <div class="col col-5" data-label="Invoice PDF"><a href="images/invoice.png" download=""><img src="images/pdfDownloadButton.png" alt="" class="pdfButton"></a></div>
+              </li>
+              <li class="table-row">
+                <div class="col col-1" data-label="Job Id">42311</div>
+                <div class="col col-2" data-label="Customer Name">John Carpenter</div>
+                <div class="col col-3" data-label="Amount">$115</div>
+                <div class="col col-4" data-label="Payment Status">Pending</div>
+                <div class="col col-5" data-label="Invoice PDF"><a href="images/invoice.png" download=""><img src="images/pdfDownloadButton.png" alt="" class="pdfButton"></a></div>
+              </li>
+              
+            </ul>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

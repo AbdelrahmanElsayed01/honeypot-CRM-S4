@@ -1,0 +1,53 @@
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensure the border-radius is applied correctly */
+    border: 1px solid #ddd;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 20px;
+    font-size: medium;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  #customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #customers tr:hover {
+    background-color: #ddd;
+  }
+
+  #logoSidebar{
+    width: 100%;
+  }
+  
+  #customers th {
+    padding-top: 22px;
+    padding-bottom: 22px;
+    text-align: left;
+    background-color: #537A5A;
+    color: white;
+  }
+  
+  #customers tr:first-child th:first-child {
+    border-top-left-radius: 20px;
+  }
+  
+  #customers tr:first-child th:last-child {
+    border-top-right-radius: 20px;
+  }
+  
+  #customers tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+  }
+  
+  #customers tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+  }
+  
