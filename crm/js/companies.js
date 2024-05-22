@@ -31,27 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		const cell1 = newRow.insertCell(0);
 		const cell2 = newRow.insertCell(1);
 		const cell3 = newRow.insertCell(2);
-		const cell4 = newRow.insertCell(3); // New cell for actions
 		// Set cell values
 		cell1.textContent = client.name;
 		cell2.textContent = client.email;
 		cell3.textContent = client.company;
-		// Create Edit button
-		const editButton = document.createElement("button");
-		editButton.textContent = "Edit";
-		editButton.classList.add("edit-button");
-		// Create Delete button
-		const deleteButton = document.createElement("button");
-		deleteButton.textContent = "Delete";
-		deleteButton.classList.add("delete-button");
-		// Add event listener to Delete button
-		deleteButton.addEventListener("click", function() {
-			table.deleteRow(newRow.rowIndex);
-			// Remove from local storage and update count here
-		});
-		// Add buttons to the actions cell
-		cell4.appendChild(editButton);
-		cell4.appendChild(deleteButton);
 	}
 
 	function updateCustomerCount() {
@@ -71,44 +54,4 @@ document.addEventListener("DOMContentLoaded", function() {
 			$(this).toggleClass('active').siblings().removeClass('active');
 		});
 	});
-});
-var ctxArea = document.getElementById('areaChart').getContext('2d');
-var areaChart = new Chart(ctxArea, {
-	type: 'line',
-	data: {
-		labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-		datasets: [{
-			label: 'Sales',
-			data: [12000, 15000, 17000, 16500, 18000, 20000],
-			fill: true,
-			borderColor: 'rgb(75, 192, 192)',
-			tension: 0.1
-		}]
-	}
-});
-var ctxDonut = document.getElementById('donutChart').getContext('2d');
-var donutChart = new Chart(ctxDonut, {
-	type: 'doughnut',
-	data: {
-		labels: ['Product A', 'Product B', 'Product C'],
-		datasets: [{
-			label: 'Sales',
-			data: [3000, 5000, 2000],
-			backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)']
-		}]
-	}
-});
-var ctxLine = document.getElementById('lineChart').getContext('2d');
-var lineChart = new Chart(ctxLine, {
-	type: 'line',
-	data: {
-		labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-		datasets: [{
-			label: 'Quarterly Sales',
-			data: [45000, 55000, 60000, 65000],
-			fill: false,
-			borderColor: 'rgb(75, 192, 192)',
-			tension: 0.1
-		}]
-	}
 });

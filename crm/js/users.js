@@ -7,19 +7,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	function addClient() {
-		const nameInput = document.getElementById("client-name").value;
-		const emailInput = document.getElementById("client-email").value;
-		const companyInput = document.getElementById("company-name").value;
-		const clientData = {
-			name: nameInput,
-			email: emailInput,
-			company: companyInput,
+		const nameInput2 = document.getElementById("client-name2").value;
+		const emailInput2 = document.getElementById("client-email2").value;
+		const companyInput2 = document.getElementById("company-name2").value;
+		const clientData2 = {
+			name: nameInput2,
+			email: emailInput2,
+			company: companyInput2,
 		};
 		// Add the new client to the table
-		addClientRow(clientData);
+		addClientRow(clientData2);
 		// Save new data to local storage
-		existingData.push(clientData);
-		localStorage.setItem("clientData", JSON.stringify(existingData));
+		existingData.push(clientData2);
+		localStorage.setItem("clientData2", JSON.stringify(existingData));
 		// Update the customer count
 		updateCustomerCount();
 	}
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		customerCountElement.textContent = initialCount + existingData.length;
 	}
 	// Load existing data from local storage (if available)
-	const existingData = JSON.parse(localStorage.getItem("clientData")) || [];
+	const existingData = JSON.parse(localStorage.getItem("clientData2")) || [];
 	existingData.forEach((client) => {
 		addClientRow(client);
 	});
@@ -71,44 +71,4 @@ document.addEventListener("DOMContentLoaded", function() {
 			$(this).toggleClass('active').siblings().removeClass('active');
 		});
 	});
-});
-var ctxArea = document.getElementById('areaChart').getContext('2d');
-var areaChart = new Chart(ctxArea, {
-	type: 'line',
-	data: {
-		labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-		datasets: [{
-			label: 'Sales',
-			data: [12000, 15000, 17000, 16500, 18000, 20000],
-			fill: true,
-			borderColor: 'rgb(75, 192, 192)',
-			tension: 0.1
-		}]
-	}
-});
-var ctxDonut = document.getElementById('donutChart').getContext('2d');
-var donutChart = new Chart(ctxDonut, {
-	type: 'doughnut',
-	data: {
-		labels: ['Product A', 'Product B', 'Product C'],
-		datasets: [{
-			label: 'Sales',
-			data: [3000, 5000, 2000],
-			backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)']
-		}]
-	}
-});
-var ctxLine = document.getElementById('lineChart').getContext('2d');
-var lineChart = new Chart(ctxLine, {
-	type: 'line',
-	data: {
-		labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-		datasets: [{
-			label: 'Quarterly Sales',
-			data: [45000, 55000, 60000, 65000],
-			fill: false,
-			borderColor: 'rgb(75, 192, 192)',
-			tension: 0.1
-		}]
-	}
 });

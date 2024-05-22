@@ -8,8 +8,6 @@
 	<link href="css/all.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/companies.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js">
-	</script>
 </head>
 <body>
 	<div class="container">
@@ -33,13 +31,13 @@
 		</header>
 		<main class="main">
 			<section class="sidebar">
-				<h3>Customer Portal</h3><img id="logoSidebar" src="images/logo.png">
+				<h3>Customer Portal</h3><img alt="Carrotsuite" id="logoSidebar" src="images/logo.png">
 				<ul class="menu">
 					<li>
-						<a class="active" href="index.html" title="Home"><img alt="" id="quotesLogo" src="images/home.png"> <span>Home</span></a>
+						<a href="index.html" title="Home"><img alt="" id="quotesLogo" src="images/home.png"> <span>Home</span></a>
 					</li>
 					<li>
-						<a href="users.html" title="Users"><img alt="" id="quotesLogo" src="images/users.png"> <span>Users</span></a>
+						<a class="active" href="users.html" title="Users"><img alt="" id="quotesLogo" src="images/users.png"> <span>Users</span></a>
 					</li>
 					<li>
 						<a href="companies.html" title="Companies"><img alt="" id="quotesLogo" src="images/companies.png"> <span>Companies</span></a>
@@ -79,21 +77,58 @@
 					</div>
 				</article>
 				<article class="board">
-					<h2>HOME</h2>
-					<div class="chart-container sales-chart" id="salesChartContainer">
-						<canvas id="areaChart"></canvas>
+					<h2>USERS</h2>
+					<form class="form" id="create-client-form" name="create-client-form">
+						<div class="form-element">
+							<label for="client-name">Employee Name</label> <input id="client-name2" name="client-name" required="" type="text">
+						</div>
+						<div class="form-element">
+							<label for="client-email">Employee Email</label> <input id="client-email2" name="client-email" required="" type="text">
+						</div>
+						<div class="form-element">
+							<label for="company-name">Role</label> <input id="company-name2" name="company-name" required="" type="text">
+						</div><button id="createClientButton" type="submit">Add Employee</button>
+					</form>
+					<div class="client-list">
+						<ul id="client-list"></ul>
 					</div>
-					<div class="chart-container pie-chart" id="pieChartContainer">
-						<canvas id="donutChart"></canvas>
-					</div>
-					<div class="chart-container quarterly-sales-chart" id="quarterlySalesChartContainer">
-						<canvas id="lineChart"></canvas>
-					</div>
+					<table id="customers">
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Actions</th>
+						</tr>
+						<tr>
+							<td>John Doe</td>
+							<td>john.doe@company.com</td>
+							<td>CEO</td>
+							<td><button class="edit-button">Edit</button> <button class="delete-button">Delete</button></td>
+						</tr>
+						<tr>
+							<td>Jane Smith</td>
+							<td>jane.smith@company.com</td>
+							<td>Manager</td>
+							<td><button class="edit-button">Edit</button> <button class="delete-button">Delete</button></td>
+						</tr>
+						<tr>
+							<td>Robert Johnson</td>
+							<td>robert.johnson@company.com</td>
+							<td>CFO</td>
+							<td><button class="edit-button">Edit</button> <button class="delete-button">Delete</button></td>
+						</tr>
+						<tr>
+							<td>Emily Davis</td>
+							<td>emily.davis@company.com</td>
+							<td>HR Specialist</td>
+							<td><button class="edit-button">Edit</button> <button class="delete-button">Delete</button></td>
+						</tr>
+					</table>
 				</article>
 			</section>
 		</main>
 	</div>
-	<script src="js/script.js">
+	<script src="js/users.js">
 	</script>
 </body>
 </html>

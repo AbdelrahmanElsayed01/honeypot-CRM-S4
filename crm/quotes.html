@@ -8,8 +8,6 @@
 	<link href="css/all.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/companies.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js">
-	</script>
 </head>
 <body>
 	<div class="container">
@@ -33,10 +31,10 @@
 		</header>
 		<main class="main">
 			<section class="sidebar">
-				<h3>Customer Portal</h3><img id="logoSidebar" src="images/logo.png">
+				<h3>Customer Portal</h3><img alt="Carrotsuite" id="logoSidebar" src="images/logo.png">
 				<ul class="menu">
 					<li>
-						<a class="active" href="index.html" title="Home"><img alt="" id="quotesLogo" src="images/home.png"> <span>Home</span></a>
+						<a href="index.html" title="Home"><img alt="" id="quotesLogo" src="images/home.png"> <span>Home</span></a>
 					</li>
 					<li>
 						<a href="users.html" title="Users"><img alt="" id="quotesLogo" src="images/users.png"> <span>Users</span></a>
@@ -51,7 +49,7 @@
 						<a href="invoices.html" title="Invoices"><img alt="" id="quotesLogo" src="images/invoices.png"> <span>Invoices</span></a>
 					</li>
 					<li>
-						<a href="quotes.html" title="Quotes"><img alt="" id="quotesLogo" src="images/quotes.png"> <span>Quotes</span></a>
+						<a class="active" href="quotes.html" title="Quotes"><img alt="" id="quotesLogo" src="images/quotes.png"> <span>Quotes</span></a>
 					</li>
 				</ul>
 			</section>
@@ -79,15 +77,95 @@
 					</div>
 				</article>
 				<article class="board">
-					<h2>HOME</h2>
-					<div class="chart-container sales-chart" id="salesChartContainer">
-						<canvas id="areaChart"></canvas>
-					</div>
-					<div class="chart-container pie-chart" id="pieChartContainer">
-						<canvas id="donutChart"></canvas>
-					</div>
-					<div class="chart-container quarterly-sales-chart" id="quarterlySalesChartContainer">
-						<canvas id="lineChart"></canvas>
+					<div class="invoiceContainer">
+						<h2>QUOTES</h2>
+						<ul class="responsive-table">
+							<li class="table-header">
+								<div class="col col-1">
+									Id
+								</div>
+								<div class="col col-2">
+									Customer Name
+								</div>
+								<div class="col col-3">
+									Quote sum
+								</div>
+								<div class="col col-4">
+									Payment Status
+								</div>
+								<div class="col col-5">
+									Quote
+								</div>
+							</li>
+							<li class="table-row">
+								<div class="col col-1" data-label="Job Id">
+									42235
+								</div>
+								<div class="col col-2" data-label="Customer Name">
+									John Smith
+								</div>
+								<div class="col col-3" data-label="Amount">
+									$879
+								</div>
+								<div class="col col-4" data-label="Payment Status">
+									Pending
+								</div>
+								<div class="col col-5" data-label="Invoice PDF">
+									<a href="images/invoice.png"><img alt="" class="pdfButton" src="images/pdfDownloadButton.png"></a>
+								</div>
+							</li>
+							<li class="table-row">
+								<div class="col col-1" data-label="Job Id">
+									42442
+								</div>
+								<div class="col col-2" data-label="Customer Name">
+									Jennifer Smith
+								</div>
+								<div class="col col-3" data-label="Amount">
+									$226
+								</div>
+								<div class="col col-4" data-label="Payment Status">
+									Succeeded
+								</div>
+								<div class="col col-5" data-label="Invoice PDF">
+									<a href="images/invoice.png"><img alt="" class="pdfButton" src="images/pdfDownloadButton.png"></a>
+								</div>
+							</li>
+							<li class="table-row">
+								<div class="col col-1" data-label="Job Id">
+									42257
+								</div>
+								<div class="col col-2" data-label="Customer Name">
+									Joe van Rest
+								</div>
+								<div class="col col-3" data-label="Amount">
+									$3541
+								</div>
+								<div class="col col-4" data-label="Payment Status">
+									Pending
+								</div>
+								<div class="col col-5" data-label="Invoice PDF">
+									<a href="images/invoice.png"><img alt="" class="pdfButton" src="images/pdfDownloadButton.png"></a>
+								</div>
+							</li>
+							<li class="table-row">
+								<div class="col col-1" data-label="Job Id">
+									42311
+								</div>
+								<div class="col col-2" data-label="Customer Name">
+									John Zambrano
+								</div>
+								<div class="col col-3" data-label="Amount">
+									$4364
+								</div>
+								<div class="col col-4" data-label="Payment Status">
+									In Review
+								</div>
+								<div class="col col-5" data-label="Invoice PDF">
+									<a href="images/invoice.png"><img alt="" class="pdfButton" src="images/pdfDownloadButton.png"></a>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</article>
 			</section>
