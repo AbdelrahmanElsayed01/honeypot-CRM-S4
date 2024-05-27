@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using HoneypotCRMS4.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<HoneypotCRMS4Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HoneypotCRMS4Context") ?? throw new InvalidOperationException("Connection string 'HoneypotCRMS4Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
