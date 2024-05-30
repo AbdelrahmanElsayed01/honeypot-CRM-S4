@@ -7,6 +7,7 @@ namespace HoneypotCRMS4.Controllers
     public class ClientController : Controller
     {
 
+
         private readonly ILogger<ClientController> _logger;
         private DataHelper dh = new DataHelper();
 

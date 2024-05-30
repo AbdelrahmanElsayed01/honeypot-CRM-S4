@@ -1,0 +1,49 @@
+
+@model IEnumerable<HoneypotCRMS4.Models.OrderModel>
+
+
+
+
+
+
+
+<section class="page-content">
+<article class="board">
+                    <h2>ORDERS</h2>
+                    <div class="ordersContainer mt-5">
+                        <div class="d-flex justify-content-center row">
+                            <div class="col-md-10">
+                                <div class="rounded">
+                                    <div class="table-responsive table-borderless">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>ORDER #</th>
+                                                    <th>COMPANY NAME</th>
+                                                    <th>STATUS</th>
+                                                    <th>TOTAL</th>
+                                                    <th>CREATED</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-body">
+                                                @foreach (var order in Model)
+                                                {
+                                                    <tr class="cell-1">
+                                                        <td>@order.OrderNumber</td>
+                                                        <td>@order.CompanyName</td>
+                                                        <td><span>@order.Status</span></td>
+                                                        <td>@order.Total.ToString("C")</td>
+                                                        <td>@order.Created.ToShortDateString()</td>
+                                                        <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+</section>

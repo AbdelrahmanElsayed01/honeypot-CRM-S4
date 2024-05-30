@@ -113,5 +113,94 @@ namespace HoneypotCRMS4.Data
     cmd.ExecuteNonQuery();
     con.Close();
         }
+
+
+
+         public List<QuoteModel> GetQuotes()
+        {
+            List<QuoteModel> quotes = new List<QuoteModel>();
+
+            
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Quotes", con);
+            
+            MySqlDataReader reader = cmd.ExecuteReader();
+            
+                        while (reader.Read())
+                        {
+                            QuoteModel quote = new QuoteModel()
+                            {
+                                ID = Convert.ToInt32(reader["ID"]),
+                                CustomerName = reader["CustomerName"].ToString(),
+                                QuoteSum = Convert.ToDecimal(reader["QuoteSum"]),
+                                PaymentStatus = reader["PaymentStatus"].ToString()
+                            };
+                            quotes.Add(quote);
+                        }
+                    
+                
+            
+
+            return quotes;
+        }
+
+
+         public List<InvoiceModel> GetInvoices()
+        {
+            List<InvoiceModel> invoices = new List<InvoiceModel>();
+
+            
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Invoices", con);
+            
+            MySqlDataReader reader = cmd.ExecuteReader();
+            
+                        while (reader.Read())
+                        {
+                            InvoiceModel invoice = new InvoiceModel()
+                            {
+                                Id = Convert.ToInt32(reader["JobID"]),
+                                CustomerName = reader["CustomerName"].ToString(),
+                                Amount = Convert.ToDecimal(reader["AmountDue"]),
+                                Status = reader["PaymentStatus"].ToString()
+                            };
+                            invoices.Add(invoice);
+                        }
+                    
+                
+            
+
+            return invoices;
+        }
+
+         public List<OrderModel> GetOrders()
+        {
+            List<OrderModel> orders = new List<OrderModel>();
+
+            
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Orders", con);
+            
+            MySqlDataReader reader = cmd.ExecuteReader();
+            
+                        while (reader.Read())
+                        {
+                            OrderModel order = new OrderModel()
+                            {
+                                Id = Convert.ToInt32(reader["ID"]),
+                                OrderNumber = reader["OrderReference"].ToString(),
+                                CompanyName = Convert.ToString(reader["CompanyName"]),
+                                Status = reader["Status"].ToString(),
+                                Total = Convert.ToDecimal(reader["Total"]),
+                                Created = Convert.ToDateTime(reader["Created"])
+                            };
+                            orders.Add(order);
+                        }
+                    
+                
+            
+
+            return orders;
+        }
     }
 }

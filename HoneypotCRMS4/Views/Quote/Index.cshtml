@@ -1,0 +1,52 @@
+@model IEnumerable<HoneypotCRMS4.Models.QuoteModel>
+@{
+    ViewData["Title"] = "Quote Page";
+}
+
+            <section class="page-content">
+                <article class="board">
+                    <div class="invoiceContainer">
+                        <h2>QUOTES</h2>
+                        <ul class="responsive-table">
+                            <li class="table-header">
+                                <div class="col col-1">
+                                    Id
+                                </div>
+                                <div class="col col-2">
+                                    Customer Name
+                                </div>
+                                <div class="col col-3">
+                                    Quote sum
+                                </div>
+                                <div class="col col-4">
+                                    Payment Status
+                                </div>
+                                <div class="col col-5">
+                                    Quote
+                                </div>
+                            </li>
+                            @foreach (var quote in Model)
+                            {
+                                <li class="table-row">
+                                    <div class="col col-1" data-label="Job Id">
+                                        @quote.ID
+                                    </div>
+                                    <div class="col col-2" data-label="Customer Name">
+                                        @quote.CustomerName
+                                    </div>
+                                    <div class="col col-3" data-label="Amount">
+                                        @quote.QuoteSum.ToString("C")
+                                    </div>
+                                    <div class="col col-4" data-label="Payment Status">
+                                        @quote.PaymentStatus
+                                    </div>
+                                    <div class="col col-5" data-label="Invoice PDF">
+                                        <a href="images/invoice.png"><img alt="" class="pdfButton" src="images/pdfDownloadButton.png"></a>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </article>
+            </section>
+    <script src="~/js/script.js"></script>

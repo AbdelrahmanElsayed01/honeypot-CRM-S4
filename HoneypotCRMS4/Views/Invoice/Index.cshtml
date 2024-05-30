@@ -1,0 +1,32 @@
+@model IEnumerable<HoneypotCRMS4.Models.InvoiceModel>
+
+
+
+<section class="page-content">
+<article class="board">
+                    <div class="invoiceContainer">
+                        <h2>INVOICES</h2>
+                        <ul class="responsive-table">
+                            <li class="table-header">
+                                <div class="col col-1">Job Id</div>
+                                <div class="col col-2">Customer Name</div>
+                                <div class="col col-3">Amount Due</div>
+                                <div class="col col-4">Payment Status</div>
+                                <div class="col col-5">Invoice</div>
+                            </li>
+                            @foreach (var invoice in Model)
+                            {
+                                <li class="table-row">
+                                    <div class="col col-1" data-label="Job Id">@invoice.Id</div>
+                                    <div class="col col-2" data-label="Customer Name">@invoice.CustomerName</div>
+                                    <div class="col col-3" data-label="Amount">@invoice.Amount.ToString("C")</div>
+                                    <div class="col col-4" data-label="Payment Status">@invoice.Status</div>
+                                    <div class="col col-5" data-label="Invoice PDF">
+									<a href="images/invoice.png"><img alt="" class="pdfButton" src="images/pdfDownloadButton.png"></a>
+								</div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </article>
+            </section>
