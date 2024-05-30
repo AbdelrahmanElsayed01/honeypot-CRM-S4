@@ -4,43 +4,67 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - HoneypotCRMS4</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/HoneypotCRMS4.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/all.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/companies.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/users.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/quotes.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/invoices.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/orders.css" asp-append-version="true"/>
+
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HoneypotCRMS4</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+        <header>
+            <nav class="carrotsuite-nav">
+                <div class="logo">
+                    <a class="active nav-item" href="~/"><img src="~/images/crmLogo.png"></a>
+                </div>
+                <div class="icons left"></div>
+                <div class="icons right">
+                    <a class="nav-item" href="#">
+                        <div class="badge">
+                            <span>5</span>
+                        </div><i class="far fa-bell"></i></a> <a class="nav-item" href="#"><i class="far fa-envelope"></i></a> <a class="nav-item" href="#"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="user" id="user">
+                    <a class="user-link" href="#">Kristians</a>
+                    <div class="user-img-wrapper"><img alt="User 1" src="~/images/User%20Basic%20Straight%20Lineal.png"></div>
+                </div>
+            </nav><!-- end of feeds navigation -->
+        </header>
+        <main class="main">
+            <section class="sidebar">
+                <h3>Customer Portal</h3><img alt="Carrotsuite" id="logoSidebar" src="~/images/logo.png">
+                <ul class="menu">
+                    <li>
+                        <a href="~/"><img alt="" id="quotesLogo" src="~/images/home.png"> <span>Home</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    <li>
+                        <a class="active" href="~/User"><img alt="" id="quotesLogo" src="~/images/users.png"> <span>Users</span></a>
+                    </li>
+                    <li>
+                        <a href="~/client"><img alt="" id="quotesLogo" src="~/images/companies.png"> <span>Companies</span></a>
+                    </li>
+                    <li>
+                        <a href="~/Orders"><img alt="" id="quotesLogo" src="~/images/orders.png"> <span>Orders</span></a>
+                    </li>
+                    <li>
+                        <a href="~/Invoices"><img alt="" id="quotesLogo" src="~/images/invoices.png"> <span>Invoices</span></a>
+                    </li>
+                    <li>
+                        <a href="~/Quotes"><img alt="" id="quotesLogo" src="~/images/quotes.png"> <span>Quotes</span></a>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <main role="main" class="pb-3">
+            </section>
+    <main class="main" role="main" class="pb-3">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - HoneypotCRMS4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

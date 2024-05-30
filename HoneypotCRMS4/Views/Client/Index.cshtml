@@ -1,4 +1,4 @@
-﻿@model HoneypotCRMS4.Models.UserViewModel
+@model HoneypotCRMS4.Models.ClientViewModel
 
 @{
     ViewData["Title"] = "User";
@@ -19,28 +19,28 @@
 <body>
     <section class="page-content">
         <article class="board">
-            <h2>USERS</h2>
+            <h2>Clients</h2>
 
 
             <div class="form">
-            @using (Html.BeginForm("Index", "User", FormMethod.Post,  new { @class="form" }))
+            @using (Html.BeginForm("Index", "Client", FormMethod.Post,  new { @class="form" }))
             {
                 <div class="form-element">
-                    <label for="client-name">Employee Name</label> 
-                    @Html.ValidationMessageFor(model => model.NewUser.Name, "", new { @class = "text-danger" })
-                    @Html.TextBoxFor(model => model.NewUser.Name, new { @class = " input-group" })
+                    <label for="client-name">Client Name</label> 
+                    @Html.ValidationMessageFor(model => model.NewClient.Name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model =>  model.NewClient.Name, new { @class = " input-group" })
                 </div>
                 <div class="form-element">
-                    <label for="client-email">Employee Email</label> 
-                    @Html.ValidationMessageFor(model => model.NewUser.Email, "", new { @class = "text-danger" })
-                    @Html.TextBoxFor(model => model.NewUser.Email, new { @class = "input-group" })
+                    <label for="client-email">Client Email</label> 
+                    @Html.ValidationMessageFor(model => model.NewClient.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model =>  model.NewClient.Email, new { @class = "input-group" })
                 </div>
                 <div class="form-element">
-                    <label for="company-name">Role</label> 
-                    @Html.ValidationMessageFor(model => model.NewUser.Role, "", new { @class = "text-danger" })
-                    @Html.TextBoxFor(model => model.NewUser.Role, new { @class = "input-group" })
+                    <label for="company-name">Company Name</label> 
+                    @Html.ValidationMessageFor(model => model.NewClient.CompanyName , "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.NewClient.CompanyName , new { @class = "input-group" })
                 </div>
-                <button id="createClientButton" type="submit"  >Add Employee</button>
+                <button id="createClientButton" type="submit"  >Add Client</button>
             }
             </div>
             <table id="customers">
@@ -50,14 +50,14 @@
                     <th>Role</th>
                     <th>Actions</th>
                 </tr>
-                @foreach (var user in Model.Users)
+                @foreach (var user in Model.Clients)
                 {
                     <tr>
                         <td>@user.Name</td>
                         <td>@user.Email</td>
-                        <td>@user.Role</td>
+                        <td>@user.CompanyName</td>
                         <td>
-                            @using (Html.BeginForm("Delete", "User", FormMethod.Post))
+                            @using (Html.BeginForm("Delete", "Client", FormMethod.Post))
                             {
                                 @Html.Hidden("id", user.Id)
                                 <button type="submit" class="delete-button">Delete</button>

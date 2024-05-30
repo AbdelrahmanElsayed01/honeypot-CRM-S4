@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace HoneypotCRMS4.Models
 {
-    public class UserModel
+    public class ClientModel
     {
         public int Id { get; set; }
 
@@ -14,19 +14,19 @@ namespace HoneypotCRMS4.Models
         public string Email { get; set; }
 
         [Required]
-        public string Role { get; set; }
+        public string CompanyName { get; set; }
 
-        public UserModel()
+        public ClientModel()
         {
         }
 
         // Constructor with parameters
-        public UserModel(int id, string name, string email, string role)
+        public ClientModel(int id, string name, string email, string companyName)
         {
             Id = id;
             Name = name;
             Email = email;
-            Role = role;
+            CompanyName = companyName;
         }
         
     }
