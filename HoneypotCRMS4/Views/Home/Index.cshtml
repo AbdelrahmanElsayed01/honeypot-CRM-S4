@@ -1,3 +1,52 @@
 @* @{
     ViewData["Title"] = "Home Page";
 } *@
+
+<section class="page-content">
+	<article class="header">
+		<div class="info"></div>
+		<div class="dropdown">
+			<button class="dropbtn">Actions <i class="fas fa-caret-up"></i></button>
+			<div class="dropdown-content">
+				<a href="#">
+					<svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+						<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
+					</svg> Send SMS
+				</a> <a href="#">
+					<svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+						<rect height="14" rx="2" width="18" x="3" y="5"></rect>
+						<polyline points="3 7 12 13 21 7"></polyline>
+					</svg> Send Email
+				</a> <a href="#">
+					<svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+						<path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"></path>
+						<polyline points="9 15 12 12 15 15"></polyline>
+						<line x1="12" x2="12" y1="12" y2="21"></line>
+					</svg> Export
+				</a> <a href="#">
+					<svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+						<path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4"></path>
+						<line x1="12" x2="12" y1="13" y2="22"></line>
+						<polyline points="9 19 12 22 15 19"></polyline>
+					</svg> Import
+				</a>
+			</div>
+		</div>
+	</article>
+	<article class="board">
+		<h2>HOME</h2>
+		<div class="chart-container sales-chart" id="salesChartContainer">
+			<canvas id="areaChart"></canvas>
+		</div>
+		<div class="chart-container pie-chart" id="pieChartContainer">
+			<canvas id="donutChart"></canvas>
+		</div>
+		<div class="chart-container quarterly-sales-chart" id="quarterlySalesChartContainer">
+			<canvas id="lineChart"></canvas>
+		</div>
+	</article>
+</section>
