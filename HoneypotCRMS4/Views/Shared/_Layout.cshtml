@@ -4,43 +4,102 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - HoneypotCRMS4</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/HoneypotCRMS4.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/all.css">
+    <link rel="stylesheet" href="~/css/companies.css">
+    <script src="https://kit.fontawesome.com/da3cf4b93f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HoneypotCRMS4</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+			<nav class="carrotsuite-nav">
+				<div class="logo">
+					<a class="active nav-item" href="index.html"><img src="~/images/crmLogo.png"></a>
+				</div>
+				<div class="icons left"></div>
+				<div class="icons right">
+					<a class="nav-item" href="#">
+					<div class="badge">
+						<span>5</span>
+					</div><i class="far fa-bell"></i></a> <a class="nav-item" href="#"><i class="far fa-envelope"></i></a> <a class="nav-item" href="#"><i class="fas fa-search"></i></a>
+				</div>
+				<div class="user" id="user">
+					<a class="user-link" href="#">Kristians</a>
+					<div class="user-img-wrapper"><img alt="User 1" src="~/images/User%20Basic%20Straight%20Lineal.png"></div>
+				</div>
+			</nav><!-- end of feeds navigation -->
 </header>
-<div class="container">
+		<main class="main">
+			<section class="sidebar">
+				<h3>Customer Portal</h3><img id="logoSidebar" src="~/images/logo.png">
+				<ul class="menu">
+					<li>
+						<a class="active" href="index.html" title="Home"><img alt="" id="quotesLogo" src="~/images/home.png"> <span>Home</span></a>
+					</li>
+					<li>
+						<a href="users.html" title="Users"><img alt="" id="quotesLogo" src="~/images/users.png"> <span>Users</span></a>
+					</li>
+					<li>
+						<a href="companies.html" title="Companies"><img alt="" id="quotesLogo" src="~/images/companies.png"> <span>Companies</span></a>
+					</li>
+					<li>
+						<a href="orders.html" title="Orders"><img alt="" id="quotesLogo" src="~/images/orders.png"> <span>Orders</span></a>
+					</li>
+					<li>
+						<a href="invoices.html" title="Invoices"><img alt="" id="quotesLogo" src="~/images/invoices.png"> <span>Invoices</span></a>
+					</li>
+					<li>
+						<a href="quotes.html" title="Quotes"><img alt="" id="quotesLogo" src="~/images/quotes.png"> <span>Quotes</span></a>
+					</li>
+				</ul>
+			</section>
+			<section class="page-content">
+				<article class="header">
+					<div class="info"></div>
+					<div class="dropdown">
+						<button class="dropbtn">Actions <i class="fas fa-caret-up"></i></button>
+						<div class="dropdown-content">
+							<a href="#"><svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+							<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path></svg> Send SMS</a> <a href="#"><svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+							<rect height="14" rx="2" width="18" x="3" y="5"></rect>
+							<polyline points="3 7 12 13 21 7"></polyline></svg> Send Email</a> <a href="#"><svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+							<path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1"></path>
+							<polyline points="9 15 12 12 15 15"></polyline>
+							<line x1="12" x2="12" y1="12" y2="21"></line></svg> Export</a> <a href="#"><svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+							<path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4"></path>
+							<line x1="12" x2="12" y1="13" y2="22"></line>
+							<polyline points="9 19 12 22 15 19"></polyline></svg> Import</a>
+						</div>
+					</div>
+				</article>
+                				<article class="board">
+					<h2>HOME</h2>
+					<div class="chart-container sales-chart" id="salesChartContainer">
+						<canvas id="areaChart"></canvas>
+					</div>
+					<div class="chart-container pie-chart" id="pieChartContainer">
+						<canvas id="donutChart"></canvas>
+					</div>
+					<div class="chart-container quarterly-sales-chart" id="quarterlySalesChartContainer">
+						<canvas id="lineChart"></canvas>
+					</div>
+				</article>
+			</section>
+		</main>
+<div>
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - HoneypotCRMS4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
