@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HoneypotCRMS4.Models;
 using HoneypotCRMS4.Data;
 namespace HoneypotCRMS4.Controllers
 {
-    public class UserController : Controller
+    public class ClientController : Controller
     {
 
-        private readonly ILogger<UserController> _logger;
+
+        private readonly ILogger<ClientController> _logger;
         private DataHelper dh = new DataHelper();
 
-        public UserController(ILogger<UserController> logger)
+        public ClientController(ILogger<ClientController> logger)
         {
             _logger = logger;
         }
@@ -19,26 +20,26 @@ namespace HoneypotCRMS4.Controllers
 
         public IActionResult Index()
         {
-            var viewModel = new UserViewModel()
+            var viewModel = new ClientViewModel()
             {
-                Users = dh.GetUsers(),
-                NewUser = new UserModel()
+                Clients = dh.GetClients(),
+                NewClient = new ClientModel()
             };
             return View(viewModel);
         }
 
  // POST: Users/Create
         [HttpPost]
-        public ActionResult Index(UserViewModel viewModel)
+        public ActionResult Index(ClientViewModel viewModel)
         {
             
             
-            if (viewModel.NewUser != null)
+            if (viewModel.NewClient != null)
             {
-                dh.AddUser(viewModel.NewUser);
+                dh.AddClient(viewModel.NewClient);
                 return RedirectToAction("Index");
             }
-            viewModel.Users = dh.GetUsers(); // Ensure the users list is re-populated in case of validation failure
+            viewModel.Clients = dh.GetClients(); // Ensure the users list is re-populated in case of validation failure
             return View(viewModel);
         }
 /*
@@ -67,19 +68,19 @@ namespace HoneypotCRMS4.Controllers
         // GET: Users/Delete/5
         public ActionResult Delete(int id)
         {
-            var Users = dh.GetUsers();
-            var user = Users.Find(u => u.Id == id);
-            return View(user);
+            var clients = dh.GetClients();
+            var client = clients.Find(u => u.Id == id);
+            return View(client);
         }
 
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var Users = dh.GetUsers();
-            var user = Users.Find(u => u.Id == id);
-            Users.Remove(user);
-            dh.DeleteUser(id);
+            var clients = dh.GetClients();
+            var client = clients.Find(u => u.Id == id);
+            clients.Remove(client);
+            dh.DeleteClient(id);
             return RedirectToAction("Index");
         }
    
@@ -89,10 +90,10 @@ namespace HoneypotCRMS4.Controllers
             return dh.CheckConnection();
         }
 
-        public List<UserModel> GetUsers()
+        public List<ClientModel> GetClients()
         {
             DataHelper dh = new DataHelper();
-            return dh.GetUsers();
+            return dh.GetClients();
         }
 
     }

@@ -4,7 +4,22 @@ services:
   honeypotcrms4:
     image: honeypotcrms4
     ports:
-      - 80
+      - 8080:80
     build:
       context: .
       dockerfile: HoneypotCRMS4/Dockerfile
+    links:
+      - mysql
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: honeypot
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    expose:
+      - 3306
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./DatabaseDump/honeypot.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+volumes:
+  mysql:
