@@ -11,7 +11,7 @@ namespace HoneypotCRMS4.Data
 
         public DataHelper()
         {
-            conn = "Server=localhost;Uid=root;Database=honeypot;Pwd=; SSL Mode=None;";
+            conn = "Server=mysql;Uid=root;Database=honeypot;Pwd=; SSL Mode=None;";
             con = new MySqlConnection(conn);
         }
 
@@ -122,7 +122,7 @@ namespace HoneypotCRMS4.Data
 
             
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Quotes", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM quotes", con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
             
@@ -151,7 +151,7 @@ namespace HoneypotCRMS4.Data
 
             
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Invoices", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM invoices", con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
             
@@ -179,7 +179,7 @@ namespace HoneypotCRMS4.Data
 
             
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Orders", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM orders", con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
             
