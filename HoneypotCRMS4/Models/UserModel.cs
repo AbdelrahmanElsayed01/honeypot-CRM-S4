@@ -16,17 +16,21 @@ namespace HoneypotCRMS4.Models
         [Required]
         public string Role { get; set; }
 
+        [Required]
+        public string Password { get; set; }
+
         public UserModel()
         {
         }
 
         // Constructor with parameters
-        public UserModel(int id, string name, string email, string role)
+        public UserModel(int id, string name, string email, string role, string password)
         {
             Id = id;
             Name = name;
             Email = email;
             Role = role;
+            Password = password;
         }
         
     }

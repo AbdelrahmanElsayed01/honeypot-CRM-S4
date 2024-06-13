@@ -10,6 +10,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Remove="Views\Shared\_LoginLayout.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
@@ -24,6 +28,18 @@
       <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
       <PackageReference Include="MySql.Data" Version="8.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Shared\_LoginLayout.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Shared\_LoginLayout.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="Views\Shared\_LoginLayout.cshtml" />
     </ItemGroup>
 
 </Project>

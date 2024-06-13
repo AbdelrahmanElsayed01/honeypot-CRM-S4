@@ -11,7 +11,7 @@ namespace HoneypotCRMS4.Data
 
         public DataHelper()
         {
-            conn = "Server=mysql;Uid=root;Database=honeypot;Pwd=; SSL Mode=None;";
+            conn = "Server=localhost;Uid=root;Database=honeypot;Pwd=; SSL Mode=None;";
             con = new MySqlConnection(conn);
         }
 
@@ -201,6 +201,45 @@ namespace HoneypotCRMS4.Data
             
 
             return orders;
+        }
+
+
+        public void Register(UserModel user)
+        {
+            con.Open();
+            string query = "INSERT INTO user (name, email, role, password) VALUES (@Name, @Email, @Role, @Password)";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Role", user.Role);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+
+        public UserModel AuthenticateUser(string email, string password)
+        {
+            UserModel user = null;
+            con.Open();
+            string query = "SELECT * FROM user WHERE email = @Email AND password = @Password";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Password", password);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                user = new UserModel
+                {
+                    Id = Convert.ToInt32(reader["id"]),
+                    Name = reader["name"].ToString(),
+                    Email = reader["email"].ToString(),
+                    Role = reader["role"].ToString(),
+                    Password = reader["password"].ToString()
+                };
+            }
+            con.Close();
+            return user;
         }
     }
 }

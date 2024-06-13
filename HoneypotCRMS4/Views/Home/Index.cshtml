@@ -2,6 +2,10 @@
     ViewData["Title"] = "Home Page";
 } *@
 
+
+
+				@if (User.Identity.IsAuthenticated)
+				{
 <section class="page-content">
 	<article class="header">
 		<div class="info"></div>
@@ -50,3 +54,12 @@
 		</div>
 	</article>
 </section>
+				}
+				
+				else{
+				
+        			 @using (Html.BeginForm("LogOut", "account", FormMethod.Post, new { @class = "form" }))
+                {
+                     <button class="dropbtn" type="Submit">Login</button>
+                }
+				}

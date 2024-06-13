@@ -4,8 +4,10 @@ using HoneypotCRMS4.Models;
 using System.Collections.Generic;
 using System.Linq;
 using HoneypotCRMS4.Data;
+using Microsoft.AspNetCore.Authorization;
 namespace HoneypotCRMS4.Controllers
 {
+    [Authorize]
     public class QuoteController : Controller
     {
         private readonly ILogger<QuoteController> _logger;

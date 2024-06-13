@@ -1,0 +1,39 @@
+﻿@page
+@model HoneypotCRMS4.Views.Registeration.IndexModel
+@{
+    ViewData["Title"] = "User Registration";
+}
+
+<div class="container">
+    <h2>User Registration</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="User.Name" class="control-label"></label>
+            <input asp-for="User.Name" class="form-control" required>
+            <span asp-validation-for="User.Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="User.Email" class="control-label"></label>
+            <input asp-for="User.Email" class="form-control" required>
+            <span asp-validation-for="User.Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="User.Password" class="control-label"></label>
+            <input asp-for="User.Password" type="password" class="form-control" required>
+            <span asp-validation-for="User.Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="User.Role" class="control-label"></label>
+            <select asp-for="User.Role" class="form-control">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
