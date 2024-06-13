@@ -1,4 +1,4 @@
-﻿@model HoneypotCRMS4.Models.LoginModel
+﻿@* @model HoneypotCRMS4.Models.LoginModel
 
 @{
     Layout = null; // Specify the layout if you have one
@@ -59,3 +59,37 @@
     </script>
 </body>
 </html>
+ *@
+ @model HoneypotCRMS4.Models.LoginModel
+ @{
+    // Layout = "~/Views/Shared/_LoginLayout.cshtml";
+ }
+
+
+	<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    <section class="page-content">
+        <article class="board">
+            <h2>Login</h2>
+
+
+            <div class="form">
+                @using (Html.BeginForm("Index", "account", FormMethod.Post, new { @class = "form" }))
+                {
+                    <div class="form-element">
+                        <label for="client-name">Email</label>
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Username, new { @class = " email ele" })
+                    </div>
+                    <div class="form-element">
+                        <label for="client-email">Password</label>
+                        @Html.ValidationMessageFor(model => model.Password, "asdfasdfasd", new { @class = "text-danger" })
+                        @Html.PasswordFor(model => model.Password, new { @class = "password ele" })
+                    </div>
+                     <button class="clkbtn login-btn" type="Submit">Login</button>
+                }
+            </div>
+
+        </article>
+    </section>
+
+

@@ -1,52 +1,63 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HoneypotCRMS4.Models;
-using Microsoft.AspNetCore.Identity;
+using HoneypotCRMS4.Data;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace HoneypotCRMS4.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly DataHelper _dataHelper;
 
-        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AccountController()
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
+            _dataHelper = new DataHelper();
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginModel model)
+    [HttpPost]
+    public async Task<IActionResult> Index(LoginModel model)
+    {
+        if (ModelState.IsValid)
         {
-            if (ModelState.IsValid)
+            var user = _dataHelper.AuthenticateUser(model.Username, model.Password);
+            if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, lockoutOnFailure: false);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("LoginSuccess");
-                }
+                var claims = new List<Claim> {
+                    new Claim(ClaimTypes.Email, user.Email)
+                };
+                var identity = new ClaimsIdentity(claims, "CookieAuth");
+                var claimsPrincipal = new ClaimsPrincipal(identity);
+
+                await HttpContext.SignInAsync("CookieAuth", claimsPrincipal);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             }
-            return View(model);
         }
-
-        public IActionResult LoginSuccess()
-        {
-            return Content("Login successful!");
-        }
-
-        [HttpPost]
+        return View(model);
+    }
+    
+    
+    [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            await HttpContext.SignOutAsync("CookieAuth");
+            return RedirectToAction("Index", "Account");
         }
+
+        
+
     }
 }
+

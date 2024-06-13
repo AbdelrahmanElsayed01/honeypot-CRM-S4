@@ -3,9 +3,11 @@ using HoneypotCRMS4.Models;
 using System.Collections.Generic;
 using Org.BouncyCastle.Asn1.Cmp;
 using HoneypotCRMS4.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClientPortal.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
 

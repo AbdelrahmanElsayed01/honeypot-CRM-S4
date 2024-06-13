@@ -24,19 +24,25 @@
 					<a class="active nav-item" href="index.html"><img src="~/images/crmLogo.png"></a>
 				</div>
 				<div class="icons left"></div>
-				<div class="icons right">
-					<a class="nav-item" href="#">
-					<div class="badge">
-						<span>5</span>
-					</div><i class="far fa-bell"></i></a> <a class="nav-item" href="#"><i class="far fa-envelope"></i></a> <a class="nav-item" href="#"><i class="fas fa-search"></i></a>
-				</div>
-				<div class="user" id="user">
-					<a class="user-link" href="#">Kristians</a>
-					<div class="user-img-wrapper"><img alt="User 1" src="~/images/User%20Basic%20Straight%20Lineal.png"></div>
-				</div>
+				
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div class="user" id="user">
+    					<a class="user-link" href="#">@User.FindFirst(System.Security.Claims.ClaimTypes.Email).Value</a>
+						<div class="user-img-wrapper"><img alt="User 1" src="~/images/User%20Basic%20Straight%20Lineal.png"></div>
+						<form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" style="display:inline;">
+                                <button type="submit" class="btn btn-link" style="padding:0;">Logout</button>
+                            </form>
+    				</div>
+				
+				}
+				
+				
 			</nav><!-- end of feeds navigation -->
 </header>
+
 		<main class="main">
+		@if (User.Identity.IsAuthenticated ){
 			<section class="sidebar">
 				<h3>Customer Portal</h3><img id="logoSidebar" src="~/images/logo.png">
 				<ul class="menu">
@@ -58,12 +64,12 @@
 					<li>
 						<a href="~/quote" title="Quotes"><img alt="" id="quotesLogo" src="~/images/quotes.png"> <span>Quotes</span></a>
 					</li>
-@* 					<li>
-						<a href="~/login" title="Login"><img alt=""> <span>Login</span></a>
-					</li> *@
+@* 				<li>
+					<a href="~/account" title="Quotes"><img alt="" id="quotesLogo" src="~/images/quotes.png"> <span>Login</span></a>
+				</li> *@
 				</ul>
 			</section>
-
+}
 
 
 

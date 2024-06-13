@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using HoneypotCRMS4.Models;
 using HoneypotCRMS4.Data;
+using Microsoft.AspNetCore.Authorization;
 namespace HoneypotCRMS4.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
 
@@ -93,6 +95,18 @@ namespace HoneypotCRMS4.Controllers
         {
             DataHelper dh = new DataHelper();
             return dh.GetUsers();
+        }
+
+        public IActionResult Register(UserModel user)
+        {
+            // Call the Register method from your repository
+            dh.Register(user);
+
+            // Show a success message
+            TempData["Message"] = "Registration successful";
+
+            // Redirect to a success page or any other action
+            return RedirectToAction("Index", "Home");
         }
 
     }

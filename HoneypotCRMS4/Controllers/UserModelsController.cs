@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HoneypotCRMS4.Data;
 using HoneypotCRMS4.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HoneypotCRMS4.Controllers
 {
+    [Authorize]
     public class UserModelsController : Controller
     {
         private readonly HoneypotCRMS4Context _context;

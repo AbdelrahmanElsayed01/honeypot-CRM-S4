@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HoneypotCRMS4.Models;
 using HoneypotCRMS4.Data;
+using Microsoft.AspNetCore.Authorization;
 namespace HoneypotCRMS4.Controllers
 {
+    [Authorize]
     public class ClientController : Controller
     {
 
