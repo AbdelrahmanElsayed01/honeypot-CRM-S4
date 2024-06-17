@@ -20,6 +20,6 @@ services:
       - 3306
     volumes:
       - mysql:/var/lib/mysql
-      - ./DatabaseDump/honeypot.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ./DatabaseDump/honeypot1.sql:/docker-entrypoint-initdb.d/schema.sql:ro
 volumes:
   mysql:

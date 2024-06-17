@@ -1,6 +1,6 @@
 
 using HoneypotCRMS4.Models;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace HoneypotCRMS4.Data
 {
@@ -205,8 +205,7 @@ namespace HoneypotCRMS4.Data
             cmd.ExecuteNonQuery();
             con.Close();
         }
-
-
+        
         public UserModel? AuthenticateUser(string email, string password)
         {
             UserModel? user = null;
