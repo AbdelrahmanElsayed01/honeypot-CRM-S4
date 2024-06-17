@@ -66,11 +66,11 @@ namespace HoneypotCRMS4.Data
         public void DeleteUser(int id)
         {
             con.Open();
-        string query = "DELETE FROM user WHERE id = @Id";
-    MySqlCommand cmd = new MySqlCommand(query, con);
-    cmd.Parameters.AddWithValue("@Id", id);
-    cmd.ExecuteNonQuery();
-    con.Close();
+            string query = "DELETE FROM user WHERE id = @Id";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         public List<ClientModel> GetClients()
@@ -104,48 +104,44 @@ namespace HoneypotCRMS4.Data
             con.Close();
         }
 
-                public void DeleteClient(int id)
+        public void DeleteClient(int id)
         {
             con.Open();
-        string query = "DELETE FROM client WHERE id = @Id";
-    MySqlCommand cmd = new MySqlCommand(query, con);
-    cmd.Parameters.AddWithValue("@Id", id);
-    cmd.ExecuteNonQuery();
-    con.Close();
+            string query = "DELETE FROM client WHERE id = @Id";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
 
 
-         public List<QuoteModel> GetQuotes()
+        public List<QuoteModel> GetQuotes()
         {
             List<QuoteModel> quotes = new List<QuoteModel>();
-
             
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM quotes", con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
             
-                        while (reader.Read())
-                        {
-                            QuoteModel quote = new QuoteModel()
-                            {
-                                ID = Convert.ToInt32(reader["ID"]),
-                                CustomerName = reader["CustomerName"].ToString(),
-                                QuoteSum = Convert.ToDecimal(reader["QuoteSum"]),
-                                PaymentStatus = reader["PaymentStatus"].ToString()
-                            };
-                            quotes.Add(quote);
-                        }
-                    
-                
+            while (reader.Read())
+            {
+                QuoteModel quote = new QuoteModel()
+                {
+                    ID = Convert.ToInt32(reader["ID"]),
+                    CustomerName = reader["CustomerName"].ToString(),
+                    QuoteSum = Convert.ToDecimal(reader["QuoteSum"]),
+                    PaymentStatus = reader["PaymentStatus"].ToString()
+                };
+                quotes.Add(quote);
+            }
             
-
             return quotes;
         }
 
 
-         public List<InvoiceModel> GetInvoices()
+        public List<InvoiceModel> GetInvoices()
         {
             List<InvoiceModel> invoices = new List<InvoiceModel>();
 
@@ -155,50 +151,43 @@ namespace HoneypotCRMS4.Data
             
             MySqlDataReader reader = cmd.ExecuteReader();
             
-                        while (reader.Read())
-                        {
-                            InvoiceModel invoice = new InvoiceModel()
-                            {
-                                Id = Convert.ToInt32(reader["JobID"]),
-                                CustomerName = reader["CustomerName"].ToString(),
-                                Amount = Convert.ToDecimal(reader["AmountDue"]),
-                                Status = reader["PaymentStatus"].ToString()
-                            };
-                            invoices.Add(invoice);
-                        }
-                    
-                
+            while (reader.Read())
+            {
+                InvoiceModel invoice = new InvoiceModel()
+                {
+                    Id = Convert.ToInt32(reader["JobID"]),
+                    CustomerName = reader["CustomerName"].ToString(),
+                    Amount = Convert.ToDecimal(reader["AmountDue"]),
+                    Status = reader["PaymentStatus"].ToString()
+                };
+                invoices.Add(invoice);
+            }
             
-
             return invoices;
         }
 
-         public List<OrderModel> GetOrders()
+        public List<OrderModel> GetOrders()
         {
             List<OrderModel> orders = new List<OrderModel>();
-
             
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM orders", con);
             
             MySqlDataReader reader = cmd.ExecuteReader();
             
-                        while (reader.Read())
-                        {
-                            OrderModel order = new OrderModel()
-                            {
-                                Id = Convert.ToInt32(reader["ID"]),
-                                OrderNumber = reader["OrderReference"].ToString(),
-                                CompanyName = Convert.ToString(reader["CompanyName"]),
-                                Status = reader["Status"].ToString(),
-                                Total = Convert.ToDecimal(reader["Total"]),
-                                Created = Convert.ToDateTime(reader["Created"])
-                            };
-                            orders.Add(order);
-                        }
-                    
-                
-            
+            while (reader.Read())
+            {
+                OrderModel order = new OrderModel()
+                {
+                    Id = Convert.ToInt32(reader["ID"]),
+                    OrderNumber = reader["OrderReference"].ToString(),
+                    CompanyName = Convert.ToString(reader["CompanyName"]),
+                    Status = reader["Status"].ToString(),
+                    Total = Convert.ToDecimal(reader["Total"]),
+                    Created = Convert.ToDateTime(reader["Created"])
+                };
+                orders.Add(order);
+            }
 
             return orders;
         }
@@ -218,27 +207,38 @@ namespace HoneypotCRMS4.Data
         }
 
 
-        public UserModel AuthenticateUser(string email, string password)
+        public UserModel? AuthenticateUser(string email, string password)
         {
-            UserModel user = null;
-            con.Open();
-            string query = "SELECT * FROM user WHERE email = @Email AND password = @Password";
-            MySqlCommand cmd = new MySqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Email", email);
-            cmd.Parameters.AddWithValue("@Password", password);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            UserModel? user = null;
+            try
             {
-                user = new UserModel
+                con.Open();
+                string query = "SELECT * FROM user WHERE email = @Email AND password = @Password";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Password", password);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    Id = Convert.ToInt32(reader["id"]),
-                    Name = reader["name"].ToString(),
-                    Email = reader["email"].ToString(),
-                    Role = reader["role"].ToString(),
-                    Password = reader["password"].ToString()
-                };
+                    user = new UserModel
+                    {
+                        Id = Convert.ToInt32(reader["id"]),
+                        Name = reader["name"].ToString(),
+                        Email = reader["email"].ToString(),
+                        Role = reader["role"].ToString(),
+                        Password = reader["password"].ToString()
+                    };
+                }
             }
-            con.Close();
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
             return user;
         }
     }
